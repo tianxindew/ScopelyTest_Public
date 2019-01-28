@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304961593ad3300408e7975bd35d4f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 2083837813}
   currentCamera: {fileID: 2136901709}
 --- !u!1 &1737129841
 GameObject:
@@ -454,7 +455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2136901705}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 7.13, z: -10}
+  m_LocalPosition: {x: 92.7, y: 7.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -471,4 +472,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279d288a192573d4ca0ccb06ce319afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lookingAtTarget: {fileID: 2083837813}

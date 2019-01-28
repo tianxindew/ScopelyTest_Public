@@ -4,6 +4,8 @@ using System.Collections;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject target;
     private Vector3 position;
     private float width;
     private float height;
@@ -21,7 +23,7 @@ public class InputManager : MonoBehaviour
 
         Input.simulateMouseWithTouches = true;
         myCamera = currentCamera.GetComponent<ILookAtCamera>();
-        myCamera.InitCamera(-90, 30);
+        myCamera.InitCamera(target, - 90, 30);
     }
 
     void OnGUI()
@@ -37,61 +39,61 @@ public class InputManager : MonoBehaviour
     void Update()
     {
        
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButton(0))
         {
             myCamera.Zoom(-0.1f);
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButton(1))
         {
             myCamera.Zoom(0.1f);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            myCamera.Rotate(10);
+            myCamera.Rotate(1);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            myCamera.Rotate(-10);
+            myCamera.Rotate(-1);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
 
             myCamera.RotateVerticle(1);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             myCamera.RotateVerticle(-1);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
             myCamera.Pan(new Vector3(1, 0, 0));
 
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             myCamera.Pan(new Vector3(-1, 0, 0));
 
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             myCamera.Pan(new Vector3(0, 0, 1));
 
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             myCamera.Pan(new Vector3(0, 0, -1));
         }
