@@ -184,7 +184,7 @@ public class LookAtCamera : MonoBehaviour, ILookAtCamera
 
     public void RotateVerticle(float degree)
     {
-        newAngle = m_cameraTransform.rotation.eulerAngles.x + de gree;
+        newAngle = m_cameraTransform.rotation.eulerAngles.x + degree;
         if (newAngle < 90 && newAngle > 1)// we don't want to handle extreme condition like new angle = 90 or new angle = 0 since it's not necessary
         {
             m_minY = m_targetCenter.y + m_minR * Mathf.Sin(newAngle * Mathf.Deg2Rad);
