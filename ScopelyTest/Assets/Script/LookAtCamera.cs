@@ -51,14 +51,15 @@ public class LookAtCamera : MonoBehaviour, ILookAtCamera
         m_minY = m_targetCenter.y + m_minR * Mathf.Sin(angleVerticle * Mathf.Deg2Rad);
         m_maxY = m_targetCenter.y + m_maxR * Mathf.Sin(angleVerticle * Mathf.Deg2Rad);
 
-        float R = (m_maxR + m_minR) / 2;
-        float positionX = R * Mathf.Cos(angleVerticle * Mathf.Deg2Rad) * Mathf.Cos(angle * Mathf.Deg2Rad);
-        float positionY = R * Mathf.Sin(angleVerticle * Mathf.Deg2Rad);
-        float positionZ = R * Mathf.Cos(angleVerticle * Mathf.Deg2Rad) * Mathf.Sin(angle * Mathf.Deg2Rad);
+        radius = (m_maxR + m_minR) / 2;
+        newCameraPosition.x = radius * Mathf.Cos(angleVerticle * Mathf.Deg2Rad) * Mathf.Cos(angle * Mathf.Deg2Rad) + m_cameraOrbitOrigin.x;
+        newCameraPosition.y = radius * Mathf.Sin(angleVerticle * Mathf.Deg2Rad) + m_targetCenter.y;
+        newCameraPosition.z = radius * Mathf.Cos(angleVerticle * Mathf.Deg2Rad) * Mathf.Sin(angle * Mathf.Deg2Rad) + m_cameraOrbitOrigin.z;
+
         m_cameraOrbitOrigin = m_targetCenter;
         m_cameraOrbitOrigin.y = 0;
 
-        m_cameraTransform.position = new Vector3(positionX + m_cameraOrbitOrigin.x, positionY + m_targetCenter.y, positionZ + m_cameraOrbitOrigin.z);
+        m_cameraTransform.position = newCameraPosition;
         m_cameraTransform.rotation = Quaternion.Euler(new Vector3(angleVerticle,0,0));
        
     }
